@@ -1,6 +1,6 @@
-class CategoryModel {
-  String? categoryName;
-  String? image;
+// class CategoryModel {
+//   String? categoryName;
+//   String? image;
 
-  void add(CategoryModel categoryModel) {}
-}
+//   void add(CategoryModel categoryModel) {}
+// }
