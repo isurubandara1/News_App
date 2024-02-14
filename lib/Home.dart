@@ -73,7 +73,6 @@ class _MyHomePageState extends State<MyHomePage> {
             },
             options: CarouselOptions(
               height: 250,
-              viewportFraction: 1,
               autoPlay: true,
               enlargeCenterPage: true,
               enlargeStrategy: CenterPageEnlargeStrategy.height,
@@ -85,8 +84,38 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget buildImage(String image, int index, String name) => Container(
-        child: Image.asset(image,
-            fit: BoxFit.cover, width: MediaQuery.of(context).size.width),
+        margin: EdgeInsets.symmetric(horizontal: 5),
+        child: Stack(
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: Image.asset(image,
+                  fit: BoxFit.cover, width: MediaQuery.of(context).size.width),
+            ),
+            Container(
+              height: 100,
+              padding: EdgeInsets.only(left: 10),
+              margin: EdgeInsets.only(top: 130),
+              width: MediaQuery.of(context).size.width,
+              decoration: BoxDecoration(
+                  color: Colors.black54,
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(20),
+                    bottomRight: Radius.circular(20),
+                  )),
+              child: Center(
+                child: Text(
+                  name,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
       );
 }
 
