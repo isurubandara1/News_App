@@ -1,5 +1,8 @@
+import 'dart:ffi';
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -9,6 +12,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   List<CategoryModel> categories = [];
   List<SliderModel> sliders = [];
+  int activeIndex = 0;
 
   @override
   void initState() {
@@ -46,6 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
         elevation: 0.0,
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
             padding: const EdgeInsets.only(top: 20),
@@ -65,7 +70,30 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
           SizedBox(
-            height: 30,
+            height: 10,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 10, right: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("Breaking News!",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    )),
+                Text("View All",
+                    style: TextStyle(
+                      color: Colors.blue,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                    )),
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 20,
           ),
           CarouselSlider.builder(
             itemCount: sliders.length,
@@ -75,12 +103,20 @@ class _MyHomePageState extends State<MyHomePage> {
               return buildImage(res!, index, res1!);
             },
             options: CarouselOptions(
-              height: 250,
-              autoPlay: true,
-              enlargeCenterPage: true,
-              enlargeStrategy: CenterPageEnlargeStrategy.height,
-            ),
+                height: 250,
+                autoPlay: true,
+                enlargeCenterPage: true,
+                enlargeStrategy: CenterPageEnlargeStrategy.height,
+                onPageChanged: (index, reason) {
+                  setState(() {
+                    activeIndex = index;
+                  });
+                }),
           ),
+          SizedBox(
+            height: 10,
+          ),
+          Center(child: buigIndicator()),
         ],
       ),
     );
@@ -119,6 +155,11 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ],
         ),
+      );
+
+  Widget buigIndicator() => AnimatedSmoothIndicator(
+        activeIndex: activeIndex,
+        count: sliders.length,
       );
 }
 
