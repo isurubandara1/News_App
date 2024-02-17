@@ -64,6 +64,9 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
           ),
+          SizedBox(
+            height: 30,
+          ),
           CarouselSlider.builder(
             itemCount: sliders.length,
             itemBuilder: (context, index, realIndex) {
