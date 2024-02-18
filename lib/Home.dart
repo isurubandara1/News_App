@@ -424,3 +424,11 @@ List<SliderModel> getSliders() {
 
   return slider;
 }
+
+class ArticleModel {
+  String? author;
+  String? title;
+  String? url;
+  String? urlToImage;
+  String? content;
+}
