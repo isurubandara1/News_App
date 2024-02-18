@@ -38,6 +38,9 @@ dependencies:
   carousel_slider: ^4.2.1
   smooth_page_indicator: ^1.1.0
   http: ^1.2.0
+  cached_network_image: ^3.3.1
+  url_launcher: ^6.2.4
+  flutter_web_browser: ^0.17.1
 
 dev_dependencies:
   flutter_test:
@@ -63,9 +66,9 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - images/business.jpg
+    - images/business.png
     - images/entertainment.jpg
-    - images/general.png
+    - images/general.jpg
     - images/health.jpg
     - images/sports.jpg
     - images/building.jpg

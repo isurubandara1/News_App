@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/LandingPage.dart';
+import 'package:news_app/New.dart';
 import 'Home.dart';
 
 void main() {

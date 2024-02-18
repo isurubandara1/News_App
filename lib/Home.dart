@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -70,30 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
-            SizedBox(
-              height: 10,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 10, right: 10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text("Breaking News!",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      )),
-                  Text("View All",
-                      style: TextStyle(
-                        color: Colors.blue,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
-                      )),
-                ],
-              ),
-            ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             CarouselSlider.builder(
@@ -114,15 +89,38 @@ class _MyHomePageState extends State<MyHomePage> {
                     });
                   }),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Center(child: buigIndicator()),
-            SizedBox(
-              height: 30,
+            const SizedBox(
+              height: 20,
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 10, right: 10),
+            const Padding(
+              padding: EdgeInsets.only(left: 10, right: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Breaking News!",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      )),
+                  Text("View All",
+                      style: TextStyle(
+                        color: Colors.blue,
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                      )),
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            const Padding(
+              padding: EdgeInsets.only(left: 10, right: 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -141,123 +139,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
               ),
             ),
-            SizedBox(
-              height: 30,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: Material(
-                elevation: 3.0,
-                borderRadius: BorderRadius.circular(10),
-                child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(10),
-                            child: Image.asset(
-                              "images/business.jpg",
-                              height: 120,
-                              width: 120,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          width: 20,
-                        ),
-                        Column(
-                          children: [
-                            Container(
-                              width: MediaQuery.of(context).size.width / 1.8,
-                              child: Text(
-                                  "View All View All View ghtgtgt etgetge e All View All View All",
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w500,
-                                  )),
-                            ),
-                            Container(
-                              width: MediaQuery.of(context).size.width / 1.8,
-                              child: Text(
-                                  "View All View All View All View All View All",
-                                  style: TextStyle(
-                                    color: Colors.black54,
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w500,
-                                  )),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: Material(
-                elevation: 3.0,
-                borderRadius: BorderRadius.circular(10),
-                child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(10),
-                            child: Image.asset(
-                              "images/business.jpg",
-                              height: 120,
-                              width: 120,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          width: 20,
-                        ),
-                        Column(
-                          children: [
-                            Container(
-                              width: MediaQuery.of(context).size.width / 1.8,
-                              child: Text(
-                                  "View All View All View ghtgtgt etgetge e All View All View All",
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w500,
-                                  )),
-                            ),
-                            Container(
-                              width: MediaQuery.of(context).size.width / 1.8,
-                              child: Text(
-                                  "View All View All View All View All View All",
-                                  style: TextStyle(
-                                    color: Colors.black54,
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w500,
-                                  )),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            ),
           ],
         ),
       ),
@@ -270,15 +151,18 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(20),
-              child: Image.asset(image,
-                  fit: BoxFit.cover, width: MediaQuery.of(context).size.width),
+              child: Image.asset(
+                image,
+                fit: BoxFit.cover,
+                width: MediaQuery.of(context).size.width,
+              ),
             ),
             Container(
               height: 100,
               padding: EdgeInsets.only(left: 10),
               margin: EdgeInsets.only(top: 130),
               width: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                   color: Colors.black54,
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(20),
@@ -287,10 +171,11 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Center(
                 child: Text(
                   name,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 20,
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.w400,
+                    fontStyle: FontStyle.italic,
                   ),
                 ),
               ),
@@ -338,7 +223,7 @@ class CategoryTile extends StatelessWidget {
               child: Center(
                 child: Text(
                   categoryName!,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 15,
                     fontWeight: FontWeight.bold,
@@ -363,7 +248,7 @@ List<CategoryModel> getCategories() {
   CategoryModel categoryModel = new CategoryModel();
 
   categoryModel.categoryName = "Business";
-  categoryModel.image = "images/business.jpg";
+  categoryModel.image = "images/business.png";
   categories.add(categoryModel);
 
   categoryModel = CategoryModel();
@@ -373,7 +258,7 @@ List<CategoryModel> getCategories() {
 
   categoryModel = CategoryModel();
   categoryModel.categoryName = "General";
-  categoryModel.image = "images/general.png";
+  categoryModel.image = "images/general.jpg";
   categories.add(categoryModel);
 
   categoryModel = CategoryModel();
@@ -398,37 +283,29 @@ List<SliderModel> getSliders() {
   List<SliderModel> slider = [];
 
   SliderModel categoryModel = SliderModel();
-  categoryModel.image = "images/business.jpg";
-  categoryModel.name = "Business";
+  categoryModel.image = "images/business.png";
+  categoryModel.name = "Business World News";
   slider.add(categoryModel);
 
   categoryModel = SliderModel();
   categoryModel.image = "images/entertainment.jpg";
-  categoryModel.name = "Entertainment";
+  categoryModel.name = "Entertainment News";
   slider.add(categoryModel);
 
   categoryModel = SliderModel();
-  categoryModel.image = "images/general.png";
-  categoryModel.name = "General";
+  categoryModel.image = "images/general.jpg";
+  categoryModel.name = "General News";
   slider.add(categoryModel);
 
   categoryModel = SliderModel();
   categoryModel.image = "images/health.jpg";
-  categoryModel.name = "Health";
+  categoryModel.name = "Health News";
   slider.add(categoryModel);
 
   categoryModel = SliderModel();
   categoryModel.image = "images/sports.jpg";
-  categoryModel.name = "Sports";
+  categoryModel.name = "Sports News";
   slider.add(categoryModel);
 
   return slider;
-}
-
-class ArticleModel {
-  String? author;
-  String? title;
-  String? url;
-  String? urlToImage;
-  String? content;
 }
