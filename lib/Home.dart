@@ -27,7 +27,9 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 188, 238, 190),
       appBar: AppBar(
+        backgroundColor: Colors.green,
         title: const Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -40,9 +42,9 @@ class _HomeState extends State<Home> {
               ),
             ),
             Text(
-              "News",
+              "News   ",
               style: TextStyle(
-                color: Colors.blue,
+                color: Colors.white,
                 fontWeight: FontWeight.bold,
                 fontSize: 35,
               ),

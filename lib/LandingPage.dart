@@ -12,6 +12,7 @@ class _LandingPageState extends State<LandingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 188, 238, 190),
       body: SingleChildScrollView(
         child: Container(
           //margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
@@ -41,7 +42,7 @@ class _LandingPageState extends State<LandingPage> {
               style: TextStyle(
                 fontSize: 25,
                 fontWeight: FontWeight.bold,
-                color: Colors.brown,
+                color: Colors.black54,
               ),
             ),
             SizedBox(

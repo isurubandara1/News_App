@@ -10,6 +10,7 @@ class PopularNews extends StatefulWidget {
 
 class _PopularNewsState extends State<PopularNews> {
   List<NewsArticle> _newsArticles = [];
+  bool _isLoading = false;
 
   @override
   void initState() {
@@ -18,6 +19,10 @@ class _PopularNewsState extends State<PopularNews> {
   }
 
   Future<void> fetchNews() async {
+    setState(() {
+      _isLoading = true;
+    });
+
     final apiKey = "3064c6263d7649ce9cd06f05adc66cf1";
     final response = await http.get(Uri.parse(
         'https://newsapi.org/v2/everything?q=apple&from=2024-02-17&to=2024-02-17&sortBy=popularity&apiKey=$apiKey'));
@@ -31,8 +36,15 @@ class _PopularNewsState extends State<PopularNews> {
               .where((article) => article['urlToImage'] != null)
               .map((article) => NewsArticle.fromJson(article))
               .toList();
+          _isLoading = false;
         });
       }
+    } else {
+      // Handle error
+      print('Failed to load news');
+      setState(() {
+        _isLoading = false;
+      });
     }
   }
 
@@ -70,41 +82,47 @@ class _PopularNewsState extends State<PopularNews> {
           ),
         ],
       ),
-      body: RefreshIndicator(
-        onRefresh: _refreshNews,
-        child: ListView.builder(
-          itemCount: _newsArticles.length,
-          itemBuilder: (context, index) {
-            Color backgroundColor = index % 2 == 0
-                ? const Color.fromARGB(255, 114, 113, 113)
-                : Colors.black54;
-            return Card(
-              color: backgroundColor,
-              child: ListTile(
-                title: Text(
-                  _newsArticles[index].title,
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w400,
-                    fontStyle: FontStyle.italic,
-                    color: Colors.white,
-                  ),
-                ),
-                leading: ClipRRect(
-                  borderRadius: BorderRadius.circular(5),
-                  child: Image.network(
-                    _newsArticles[index].imageUrl,
-                    width: 100.0,
-                    height: 100.0,
-                    fit: BoxFit.fill,
-                  ),
-                ),
-                onTap: () => _showNewsDetails(_newsArticles[index]),
+      body: _isLoading
+          ? Center(
+              child: CircularProgressIndicator(
+                valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
               ),
-            );
-          },
-        ),
-      ),
+            )
+          : RefreshIndicator(
+              onRefresh: _refreshNews,
+              child: ListView.builder(
+                itemCount: _newsArticles.length,
+                itemBuilder: (context, index) {
+                  Color backgroundColor = index % 2 == 0
+                      ? const Color.fromARGB(255, 114, 113, 113)
+                      : Colors.black54;
+                  return Card(
+                    color: backgroundColor,
+                    child: ListTile(
+                      title: Text(
+                        _newsArticles[index].title,
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400,
+                          fontStyle: FontStyle.italic,
+                          color: Colors.white,
+                        ),
+                      ),
+                      leading: ClipRRect(
+                        borderRadius: BorderRadius.circular(5),
+                        child: Image.network(
+                          _newsArticles[index].imageUrl,
+                          width: 100.0,
+                          height: 100.0,
+                          fit: BoxFit.fill,
+                        ),
+                      ),
+                      onTap: () => _showNewsDetails(_newsArticles[index]),
+                    ),
+                  );
+                },
+              ),
+            ),
     );
   }
 }
