@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:url_launcher/url_launcher.dart';
 
-class PopularNews extends StatefulWidget {
+class BusinessNews extends StatefulWidget {
   @override
-  _PopularNewsState createState() => _PopularNewsState();
+  _BusinessNewsState createState() => _BusinessNewsState();
 }
 
-class _PopularNewsState extends State<PopularNews> {
+class _BusinessNewsState extends State<BusinessNews> {
   List<NewsArticle> _newsArticles = [];
 
   @override
@@ -20,7 +20,7 @@ class _PopularNewsState extends State<PopularNews> {
   Future<void> fetchNews() async {
     final apiKey = "3064c6263d7649ce9cd06f05adc66cf1";
     final response = await http.get(Uri.parse(
-        'https://newsapi.org/v2/everything?q=apple&from=2024-02-17&to=2024-02-17&sortBy=popularity&apiKey=$apiKey'));
+        'https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=$apiKey'));
 
     if (response.statusCode == 200) {
       final Map<String, dynamic> data = json.decode(response.body);
@@ -56,7 +56,7 @@ class _PopularNewsState extends State<PopularNews> {
       appBar: AppBar(
         backgroundColor: Colors.green,
         title: Text(
-          'Popular News 🌟🔥🚀',
+          'Business News 🌟🔥🚀',
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
         ),
         centerTitle: true,

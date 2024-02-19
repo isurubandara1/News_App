@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:url_launcher/url_launcher.dart';
 
-class PopularNews extends StatefulWidget {
+class RecentNews extends StatefulWidget {
   @override
-  _PopularNewsState createState() => _PopularNewsState();
+  _RecentNewsState createState() => _RecentNewsState();
 }
 
-class _PopularNewsState extends State<PopularNews> {
+class _RecentNewsState extends State<RecentNews> {
   List<NewsArticle> _newsArticles = [];
 
   @override
@@ -20,7 +20,7 @@ class _PopularNewsState extends State<PopularNews> {
   Future<void> fetchNews() async {
     final apiKey = "3064c6263d7649ce9cd06f05adc66cf1";
     final response = await http.get(Uri.parse(
-        'https://newsapi.org/v2/everything?q=apple&from=2024-02-17&to=2024-02-17&sortBy=popularity&apiKey=$apiKey'));
+        'https://newsapi.org/v2/everything?q=tesla&from=2024-01-19&sortBy=publishedAt&apiKey=$apiKey'));
 
     if (response.statusCode == 200) {
       final Map<String, dynamic> data = json.decode(response.body);
@@ -56,7 +56,7 @@ class _PopularNewsState extends State<PopularNews> {
       appBar: AppBar(
         backgroundColor: Colors.green,
         title: Text(
-          'Popular News 🌟🔥🚀',
+          'Recent News 🌟🔥🚀',
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
         ),
         centerTitle: true,
@@ -126,11 +126,11 @@ class NewsArticle {
 
   factory NewsArticle.fromJson(Map<String, dynamic> json) {
     return NewsArticle(
-      title: json['title'],
-      description: json['description'],
-      imageUrl: json['urlToImage'],
-      url: json['url'],
-      publishedAt: json['publishedAt'],
+      title: json['title'] ?? 'No Title',
+      description: json['description'] ?? 'No Description',
+      imageUrl: json['urlToImage'] ?? 'https://example.com/default-image.jpg',
+      url: json['url'] ?? 'https://example.com',
+      publishedAt: json['publishedAt'] ?? 'No Date',
     );
   }
 }

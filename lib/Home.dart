@@ -1,8 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:news_app/BusinessNews.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import 'PopularNews.dart';
+import 'RecentNews.dart';
+import 'TopNews.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -102,7 +105,7 @@ class _HomeState extends State<Home> {
               height: 30,
             ),
             Padding(
-              padding: EdgeInsets.only(left: 10, right: 10),
+              padding: EdgeInsets.only(left: 20, right: 20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -145,7 +148,7 @@ class _HomeState extends State<Home> {
               height: 20,
             ),
             Padding(
-              padding: EdgeInsets.only(left: 10, right: 10),
+              padding: EdgeInsets.only(left: 20, right: 20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -159,7 +162,7 @@ class _HomeState extends State<Home> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => PopularNews()),
+                        MaterialPageRoute(builder: (context) => RecentNews()),
                       );
                     },
                     style: ElevatedButton.styleFrom(
@@ -186,7 +189,7 @@ class _HomeState extends State<Home> {
               height: 20,
             ),
             Padding(
-              padding: EdgeInsets.only(left: 10, right: 10),
+              padding: EdgeInsets.only(left: 20, right: 20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -200,7 +203,7 @@ class _HomeState extends State<Home> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => PopularNews()),
+                        MaterialPageRoute(builder: (context) => BusinessNews()),
                       );
                     },
                     style: ElevatedButton.styleFrom(
@@ -227,7 +230,7 @@ class _HomeState extends State<Home> {
               height: 20,
             ),
             Padding(
-              padding: EdgeInsets.only(left: 10, right: 10),
+              padding: EdgeInsets.only(left: 20, right: 20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -241,7 +244,7 @@ class _HomeState extends State<Home> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => PopularNews()),
+                        MaterialPageRoute(builder: (context) => TopNews()),
                       );
                     },
                     style: ElevatedButton.styleFrom(
@@ -263,6 +266,9 @@ class _HomeState extends State<Home> {
                   ),
                 ],
               ),
+            ),
+            SizedBox(
+              height: 20,
             ),
           ],
         ),
