@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:url_launcher/url_launcher.dart';
 
-class NewsScreen extends StatefulWidget {
+class PopularNews extends StatefulWidget {
   @override
-  _NewsScreenState createState() => _NewsScreenState();
+  _PopularNewsState createState() => _PopularNewsState();
 }
 
-class _NewsScreenState extends State<NewsScreen> {
+class _PopularNewsState extends State<PopularNews> {
   List<NewsArticle> _newsArticles = [];
 
   @override

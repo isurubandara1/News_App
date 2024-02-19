@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "Home.dart";
 
 class LandingPage extends StatefulWidget {
   const LandingPage({super.key});
@@ -26,7 +27,7 @@ class _LandingPageState extends State<LandingPage> {
                 child: Image.asset(
                   "images/building.jpg",
                   width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height / 1.7,
+                  height: MediaQuery.of(context).size.height / 1.8,
                   fit: BoxFit.fill,
                 ),
               ),
@@ -38,21 +39,22 @@ class _LandingPageState extends State<LandingPage> {
               "News from around the world for you",
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 28,
+                fontSize: 25,
                 fontWeight: FontWeight.bold,
+                color: Colors.brown,
               ),
             ),
             SizedBox(
-              height: 5,
+              height: 15,
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.only(left: 20, right: 20),
               child: Text(
                 "The best time to read is when you take a moment to explore more about the daily events happening in this world.",
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
+                  fontSize: 19,
+                  fontWeight: FontWeight.w300,
                   color: Colors.black54,
                 ),
               ),
@@ -62,25 +64,34 @@ class _LandingPageState extends State<LandingPage> {
             ),
             Container(
               width: MediaQuery.of(context).size.width / 1.2,
-              child: Material(
-                borderRadius: BorderRadius.circular(30),
-                elevation: 5,
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Home()),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  elevation: 5,
+                  primary: Colors.blue,
+                ),
                 child: Container(
-                    width: MediaQuery.of(context).size.width,
-                    padding: EdgeInsets.symmetric(vertical: 15),
-                    decoration: BoxDecoration(
-                        color: Colors.blue,
-                        borderRadius: BorderRadius.circular(30)),
-                    child: Center(
-                      child: Text(
-                        "GET STARTED",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
-                        ),
+                  width: MediaQuery.of(context).size.width,
+                  padding: EdgeInsets.symmetric(vertical: 15),
+                  child: Center(
+                    child: Text(
+                      "GET STARTED",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
                       ),
-                    )),
+                    ),
+                  ),
+                ),
               ),
             ),
           ]),

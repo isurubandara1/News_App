@@ -2,12 +2,14 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class MyHomePage extends StatefulWidget {
+import 'PopularNews.dart';
+
+class Home extends StatefulWidget {
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<Home> createState() => _HomeState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _HomeState extends State<Home> {
   List<CategoryModel> categories = [];
   List<SliderModel> sliders = [];
   int activeIndex = 0;
@@ -51,23 +53,6 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 20),
-              child: Container(
-                height: 150,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  shrinkWrap: true,
-                  itemCount: categories.length,
-                  itemBuilder: (context, index) {
-                    return CategoryTile(
-                      image: categories[index].image,
-                      categoryName: categories[index].categoryName,
-                    );
-                  },
-                ),
-              ),
-            ),
             const SizedBox(
               height: 30,
             ),
@@ -90,52 +75,192 @@ class _MyHomePageState extends State<MyHomePage> {
                   }),
             ),
             const SizedBox(
-              height: 10,
+              height: 20,
             ),
             Center(child: buigIndicator()),
             const SizedBox(
               height: 20,
             ),
-            const Padding(
+            Padding(
+              padding: const EdgeInsets.only(top: 20),
+              child: Container(
+                height: 150,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  shrinkWrap: true,
+                  itemCount: categories.length,
+                  itemBuilder: (context, index) {
+                    return CategoryTile(
+                      image: categories[index].image,
+                      categoryName: categories[index].categoryName,
+                    );
+                  },
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            Padding(
               padding: EdgeInsets.only(left: 10, right: 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Breaking News!",
+                  Text("Popular News",
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                       )),
-                  Text("View All",
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => PopularNews(),
+                        ),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.white, // Background color of the button
+                      onPrimary: Colors.blue, // Text color
+                      elevation: 5,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                    ),
+                    child: Text(
+                      "View All",
                       style: TextStyle(
                         color: Colors.blue,
-                        fontSize: 18,
+                        fontSize: 16,
                         fontWeight: FontWeight.w500,
-                      )),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
             const SizedBox(
               height: 20,
             ),
-            const Padding(
+            Padding(
               padding: EdgeInsets.only(left: 10, right: 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Trending News!",
+                  Text("Recent News",
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                       )),
-                  Text("View All",
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => PopularNews()),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.white, // Background color of the button
+                      onPrimary: Colors.blue, // Text color
+                      elevation: 5, // Elevation of the button
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                    ),
+                    child: Text(
+                      "View All",
                       style: TextStyle(
                         color: Colors.blue,
-                        fontSize: 18,
+                        fontSize: 16,
                         fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 10, right: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Business News",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
                       )),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => PopularNews()),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.white, // Background color of the button
+                      onPrimary: Colors.blue, // Text color
+                      elevation: 5, // Elevation of the button
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                    ),
+                    child: Text(
+                      "View All",
+                      style: TextStyle(
+                        color: Colors.blue,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 10, right: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Top News",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      )),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => PopularNews()),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.white, // Background color of the button
+                      onPrimary: Colors.blue, // Text color
+                      elevation: 5, // Elevation of the button
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                    ),
+                    child: Text(
+                      "View All",
+                      style: TextStyle(
+                        color: Colors.blue,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -171,9 +296,10 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Center(
                 child: Text(
                   name,
+                  textAlign: TextAlign.center,
                   style: const TextStyle(
                     color: Colors.white,
-                    fontSize: 20,
+                    fontSize: 18,
                     fontWeight: FontWeight.w400,
                     fontStyle: FontStyle.italic,
                   ),
@@ -284,27 +410,32 @@ List<SliderModel> getSliders() {
 
   SliderModel categoryModel = SliderModel();
   categoryModel.image = "images/business.png";
-  categoryModel.name = "Business World News";
+  categoryModel.name =
+      "Stay savvy in business with quick news updates on our app.";
   slider.add(categoryModel);
 
   categoryModel = SliderModel();
   categoryModel.image = "images/entertainment.jpg";
-  categoryModel.name = "Entertainment News";
+  categoryModel.name =
+      "Enjoy the latest in entertainment quick updates on movies, music, and more.";
   slider.add(categoryModel);
 
   categoryModel = SliderModel();
   categoryModel.image = "images/general.jpg";
-  categoryModel.name = "General News";
+  categoryModel.name =
+      "Stay updated with our app for quick, global news bites.";
   slider.add(categoryModel);
 
   categoryModel = SliderModel();
   categoryModel.image = "images/health.jpg";
-  categoryModel.name = "Health News";
+  categoryModel.name =
+      "Stay healthy, stay informed quick health news updates in one app.";
   slider.add(categoryModel);
 
   categoryModel = SliderModel();
   categoryModel.image = "images/sports.jpg";
-  categoryModel.name = "Sports News";
+  categoryModel.name =
+      "Fuel  sports passion with quick updates on our app stay in the game.";
   slider.add(categoryModel);
 
   return slider;

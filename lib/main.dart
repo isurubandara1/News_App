@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/LandingPage.dart';
-import 'package:news_app/New.dart';
+import 'package:news_app/PopularNews.dart';
 import 'Home.dart';
 
 void main() {
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MyHomePage(),
+      home: LandingPage(),
     );
   }
 }
