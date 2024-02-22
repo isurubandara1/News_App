@@ -34,3 +34,10 @@ This Flutter application is a simple yet powerful news app that allows users to 
 
    ```bash
    git clone https://github.com/isurubandara1/News_App.git
+   
+2. **Install Dependencies:**
+
+   ```bash
+    flutter pub get
+    flutter run 
+   
