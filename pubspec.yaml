@@ -79,6 +79,7 @@ flutter:
     - images/sports.jpg
     - images/building.jpg
     - images/appicon.png
+    - images/loding.jpg
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
