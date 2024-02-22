@@ -2,9 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:news_app/BusinessNews.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-
 import 'PopularNews.dart';
-import 'RecentNews.dart';
 import 'TopNews.dart';
 
 class Home extends StatefulWidget {
@@ -127,8 +125,9 @@ class _HomeState extends State<Home> {
                       );
                     },
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.white, // Background color of the button
-                      onPrimary: Colors.blue, // Text color
+                      primary:
+                          Colors.greenAccent, // Background color of the button
+                      onPrimary: Colors.white, // Text color
                       elevation: 5,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30),
@@ -137,48 +136,6 @@ class _HomeState extends State<Home> {
                     child: Text(
                       "View All",
                       style: TextStyle(
-                        color: Colors.blue,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Padding(
-              padding: EdgeInsets.only(left: 20, right: 20),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text("Recent News",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      )),
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => RecentNews()),
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      primary: Colors.white, // Background color of the button
-                      onPrimary: Colors.blue, // Text color
-                      elevation: 5, // Elevation of the button
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                    ),
-                    child: Text(
-                      "View All",
-                      style: TextStyle(
-                        color: Colors.blue,
                         fontSize: 16,
                         fontWeight: FontWeight.w500,
                       ),
@@ -209,8 +166,9 @@ class _HomeState extends State<Home> {
                       );
                     },
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.white, // Background color of the button
-                      onPrimary: Colors.blue, // Text color
+                      primary:
+                          Colors.greenAccent, // Background color of the button
+                      onPrimary: Colors.white, // Text color
                       elevation: 5, // Elevation of the button
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30),
@@ -219,7 +177,6 @@ class _HomeState extends State<Home> {
                     child: Text(
                       "View All",
                       style: TextStyle(
-                        color: Colors.blue,
                         fontSize: 16,
                         fontWeight: FontWeight.w500,
                       ),
@@ -250,8 +207,9 @@ class _HomeState extends State<Home> {
                       );
                     },
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.white, // Background color of the button
-                      onPrimary: Colors.blue, // Text color
+                      primary:
+                          Colors.greenAccent, // Background color of the button
+                      onPrimary: Colors.white, // Text color
                       elevation: 5, // Elevation of the button
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30),
@@ -260,7 +218,6 @@ class _HomeState extends State<Home> {
                     child: Text(
                       "View All",
                       style: TextStyle(
-                        color: Colors.blue,
                         fontSize: 16,
                         fontWeight: FontWeight.w500,
                       ),
@@ -321,6 +278,12 @@ class _HomeState extends State<Home> {
   Widget buigIndicator() => AnimatedSmoothIndicator(
         activeIndex: activeIndex,
         count: sliders.length,
+        effect: WormEffect(
+          dotWidth: 20,
+          activeDotColor: Colors.greenAccent,
+          dotColor: Colors.white, // Set your desired color here
+          paintStyle: PaintingStyle.fill,
+        ),
       );
 }
 
