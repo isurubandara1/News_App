@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   // Simulate some initialization process
   Future<void> _initializeApp() async {
     try {
-      await Future.delayed(Duration(seconds: 15));
+      await Future.delayed(Duration(seconds: 8));
     } catch (error) {
       print("Error during initialization: $error");
       // Handle initialization error as needed
@@ -75,7 +75,7 @@ class LoadingScreen extends StatelessWidget {
                     '𝖂𝖊𝖑𝖈𝖔𝖒𝖊 \n\n 𝔚𝔢 𝔞𝔯𝔢 𝔭𝔩𝔢𝔞𝔰𝔢𝔡 𝔱𝔥𝔞𝔱 𝔶𝔬𝔲 𝔞𝔯𝔢 𝔲𝔰𝔦𝔫𝔤 𝔬𝔲𝔯 𝔞𝔭𝔭',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 30,
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                       fontStyle: FontStyle.italic,

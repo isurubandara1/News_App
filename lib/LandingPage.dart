@@ -77,7 +77,7 @@ class _LandingPageState extends State<LandingPage> {
                     borderRadius: BorderRadius.circular(30),
                   ),
                   elevation: 5,
-                  primary: Colors.greenAccent,
+                  primary: Colors.green,
                 ),
                 child: Container(
                   width: MediaQuery.of(context).size.width,

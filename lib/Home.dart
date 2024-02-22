@@ -125,8 +125,7 @@ class _HomeState extends State<Home> {
                       );
                     },
                     style: ElevatedButton.styleFrom(
-                      primary:
-                          Colors.greenAccent, // Background color of the button
+                      primary: Colors.green, // Background color of the button
                       onPrimary: Colors.white, // Text color
                       elevation: 5,
                       shape: RoundedRectangleBorder(
@@ -166,8 +165,7 @@ class _HomeState extends State<Home> {
                       );
                     },
                     style: ElevatedButton.styleFrom(
-                      primary:
-                          Colors.greenAccent, // Background color of the button
+                      primary: Colors.green, // Background color of the button
                       onPrimary: Colors.white, // Text color
                       elevation: 5, // Elevation of the button
                       shape: RoundedRectangleBorder(
@@ -207,8 +205,7 @@ class _HomeState extends State<Home> {
                       );
                     },
                     style: ElevatedButton.styleFrom(
-                      primary:
-                          Colors.greenAccent, // Background color of the button
+                      primary: Colors.green, // Background color of the button
                       onPrimary: Colors.white, // Text color
                       elevation: 5, // Elevation of the button
                       shape: RoundedRectangleBorder(
@@ -280,7 +277,7 @@ class _HomeState extends State<Home> {
         count: sliders.length,
         effect: WormEffect(
           dotWidth: 20,
-          activeDotColor: Colors.greenAccent,
+          activeDotColor: Colors.green,
           dotColor: Colors.white, // Set your desired color here
           paintStyle: PaintingStyle.fill,
         ),
